@@ -1,0 +1,118 @@
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+// start home
+
+.btn {
+  width: 120px;
+  padding: 10px 20px;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 8px;
+  transition: all ease-in-out 0.4s;
+
+  &:hover {
+    color: #fff;
+  }
+
+  &-play {
+    color: cornflowerblue;
+    border: 1px solid cornflowerblue;
+
+    &:hover {
+      background-color: cornflowerblue;
+    }
+  }
+
+  &-login {
+    color: lightsalmon;
+    border: 1px solid lightsalmon;
+    margin: 0 10px;
+
+    &:hover {
+      background-color: lightsalmon;
+    }
+  }
+
+  &-register {
+    color: lightseagreen;
+    border: 1px solid lightseagreen;
+    margin: 0 10px;
+
+    &:hover {
+      background-color: lightseagreen;
+    }
+  }
+}
+
+.button-container {
+  padding: 10px;
+  display: flex;
+}
+
+.auth-container {
+  display: flex;
+  padding: 10px;
+}
+
+// end home
+// start guide component
+
+.guide-buttons {
+  padding: 10px;
+}
+
+.btn-back {
+  padding: 10px;
+  color: lightcoral;
+  border: 1px solid lightcoral;
+  margin: 0 10px;
+
+  &:hover {
+    background-color: lightcoral;
+  }
+}
+
+.btn-forward {
+  padding: 10px;
+  color: purple;
+  border: 1px solid purple;
+  margin: 0 10px;
+
+  &:hover {
+    background-color: purple;
+  }
+}
+
+// end guide component
+
+.roll {
+  width: 50px;
+  height: 50px;
+  background-color: deeppink;
+  opacity: 0.2;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  animation: rotating 10s linear infinite;
+}
