@@ -1,4 +1,5 @@
 .App {
+  font-family: "Roboto", sans-serif;
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -13,6 +14,7 @@
 
 .btn {
   width: 120px;
+  outline: none;
   padding: 10px 20px;
   border-radius: 40px;
   display: flex;
@@ -24,6 +26,7 @@
 
   &:hover {
     color: #fff;
+    cursor: pointer;
   }
 
   &-play {
@@ -116,3 +119,36 @@
 .rotating {
   animation: rotating 10s linear infinite;
 }
+
+// start game
+
+.btn-answer {
+  font-size: 14px;
+  color: #fff;
+  background-color: rebeccapurple;
+  margin: 10px;
+  width: 200px;
+
+  &:hover {
+    background-color: darken(rebeccapurple, 5%)
+  }
+}
+
+.answer-section {
+  display: flex;
+}
+
+.question-buttons {
+  display: flex;
+}
+
+.btn-prev,
+.btn-prev,
+.btn-exit {
+  width: 60px;
+  font-size: 14px;
+  border-radius: 0;
+  margin: 5px;
+  background-color: #6b7b8c;
+}
+// end game

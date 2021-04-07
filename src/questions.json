@@ -1,0 +1,92 @@
+[
+  {
+    "questionText": "Variable in JavaScript declared with which of the following keyword?",
+    "answerOptions": [
+      { "answerText": "new", "isCorrect": false },
+      { "answerText": "int", "isCorrect": false },
+      { "answerText": "string", "isCorrect": false },
+      { "answerText": "var", "isCorrect": true }
+    ]
+  },
+  {
+    "questionText": "Which of the followings are primitive data types in JavaScript?",
+    "answerOptions": [
+      { "answerText": "String", "isCorrect": false },
+      { "answerText": "Number", "isCorrect": false },
+      { "answerText": "Boolean", "isCorrect": false },
+      { "answerText": "All of the above", "isCorrect": true }
+    ]
+  },
+  {
+    "questionText": "What is eval() in JavaScript?",
+    "answerOptions": [
+      { "answerText": "It returns an object representing the parsed tree of the specified JavaScript code.", "isCorrect": false },
+      { "answerText": "It executes server side code in JavaScript.", "isCorrect": false },
+      { "answerText": "It displays popup message.", "isCorrect": false },
+      { "answerText": "It executes specified string as JavaScript code.", "isCorrect": true }
+    ]
+  },
+  {
+    "questionText": "What is null in JavaScript?",
+    "answerOptions": [
+      { "answerText": "Null means empty string value.", "isCorrect": false },
+      { "answerText": "Null means unknown value.", "isCorrect": false },
+      { "answerText": "Null means zero value.", "isCorrect": false },
+      { "answerText": "Null means absence of a value.", "isCorrect": true }
+    ]
+  },
+  {
+    "questionText": "How to handle error in JavaScript?",
+    "answerOptions": [
+      { "answerText": "By using eval().", "isCorrect": false },
+      { "answerText": "By writing error proof code.", "isCorrect": false },
+      { "answerText": "By using if-else block.", "isCorrect": false },
+      { "answerText": "By using try, catch & finally block.", "isCorrect": true }
+    ]
+  },
+  {
+    "questionText": "Which of the following is not a valid keyword in JavaScript?",
+    "answerOptions": [
+      { "answerText": "function", "isCorrect": false },
+      { "answerText": "this", "isCorrect": false },
+      { "answerText": "try", "isCorrect": false },
+      { "answerText": "module", "isCorrect": true }
+    ]
+  },
+  {
+    "questionText": "JavaScript written under which of the following tag?",
+    "answerOptions": [
+      { "answerText": "<JavaScript></JavaScript>", "isCorrect": false },
+      { "answerText": "<code></code>", "isCorrect": false },
+      { "answerText": "<head></head>", "isCorrect": false },
+      { "answerText": "<script></script>", "isCorrect": true }
+    ]
+  },
+  {
+    "questionText": "Which of the following object represent parameters of current function inside any function?",
+    "answerOptions": [
+      { "answerText": "Global", "isCorrect": false },
+      { "answerText": "this", "isCorrect": false },
+      { "answerText": "Object", "isCorrect": false },
+      { "answerText": "arguments", "isCorrect": true }
+    ]
+  },
+  {
+    "questionText": "A function can be assigned to a variable in JavaScript.",
+    "answerOptions": [
+      { "answerText": "False", "isCorrect": false },
+      { "answerText": "Some time", "isCorrect": false },
+      { "answerText": "None of the above", "isCorrect": false },
+      { "answerText": "True", "isCorrect": true }
+    ]
+  },
+  {
+    "questionText": "How to apply strict mode in JavaScript?",
+    "answerOptions": [
+      { "answerText": "strict mode", "isCorrect": false },
+      { "answerText": "strict", "isCorrect": false },
+      { "answerText": "apply strict", "isCorrect": false },
+      { "answerText": "use strict", "isCorrect": true }
+    ]
+  }
+]

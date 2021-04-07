@@ -8,8 +8,8 @@ export const Guide = () => {
             Hello, i'm a guide
 
             <div className='guide-buttons'>
-                <Link to='/' className='btn btn-back'>go back</Link>
-                <Link to='/play/game' className='btn btn-forward'>play</Link>
+                <Link to='/quiz/' className='btn btn-back'>go back</Link>
+                <Link to='/quiz/play/game' className='btn btn-forward'>play</Link>
             </div>
         </section>
     );

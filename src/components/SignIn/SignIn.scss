@@ -1,0 +1,33 @@
+label {
+  font-size: 16px;
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #c8c8c8;
+  height: 35px;
+  margin: 0 0 10px 0;
+  background-color: transparent;
+}
+
+.sign-in-form {
+  max-width: 300px;
+}
+
+.show-hide {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+}
+
+.text {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.sign-in-btn {
+  padding: 6px 8px;
+}

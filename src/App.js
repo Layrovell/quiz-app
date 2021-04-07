@@ -2,17 +2,18 @@ import './App.scss';
 import './styles/reset.scss';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {Home} from "./components/Home/Home";
-import {Guide} from "./components/Guide/Guide";
+import {Guide} from "./components/Quiz/Guide/Guide";
 import {Quiz} from "./components/Quiz/Quiz";
+import {SignIn} from "./components/SignIn/SignIn";
 
 function App() {
     return (
         <Router>
-            <Route path='/' exact component={Home}/>
-            <Route path='/play/guide' component={Guide}/>
-            <Route path='/login' component={Guide}/>
-            <Route path='/register' component={Guide}/>
-            <Route path='/play/game' component={Quiz}/>
+            <Route path='/quiz' exact component={Home}/>
+            <Route path='/quiz/play/guide' component={Guide}/>
+            <Route path='/quiz/login' component={SignIn}/>
+            <Route path='/quiz/register' component={Guide}/>
+            <Route path='/quiz/play/game' component={Quiz}/>
         </Router>
     );
 }

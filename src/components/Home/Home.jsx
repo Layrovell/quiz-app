@@ -6,11 +6,11 @@ export const Home = () => {
         <section className="App">
             <h1>Quiz App</h1>
             <div className='button-container'>
-                <Link to='/play/guide' className='btn btn-play'>Play</Link>
+                <Link to='/quiz/play/guide' className='btn btn-play'>Play</Link>
             </div>
             <div className='auth-container'>
-                <Link to='/login/' className="btn btn-login">Login</Link>
-                <Link to='/register/' className="btn btn-register">Register</Link>
+                <Link to='/quiz/login/' className="btn btn-login">Login</Link>
+                <Link to='/quiz/register/' className="btn btn-register">Register</Link>
             </div>
         </section>
     );
