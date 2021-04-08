@@ -2,6 +2,7 @@
 import React, {useState} from 'react';
 import questionsFromServer from '../../questions.json';
 import {Link} from "react-router-dom";
+import {Score} from "../../components/Score/Score";
 
 export const Quiz = () => {
     const [questions, setQuestions] = useState(questionsFromServer);
@@ -44,7 +45,7 @@ export const Quiz = () => {
     return (
         <section className="App">
             {showScore
-                ? <div>{score} from {questions.length}</div>
+                ? <Score score={score} questions={questions}/>
                 : <>
                     <div className="question-section">
                         <div className="question-count">Question {currentQuestion + 1} from {questions.length}</div>
