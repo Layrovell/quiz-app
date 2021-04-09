@@ -8,6 +8,7 @@ export const Score = ({questions, score}) => {
             <p>Total questions: {questions.length}</p>
             <p>Correct answers: {score}</p>
             <p>Wrong answers: {questions.length - score}</p>
+            
             <Link to='/quiz/' className='btn btn-exit'>exit</Link>
         </div>
     );

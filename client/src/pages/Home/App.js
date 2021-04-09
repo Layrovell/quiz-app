@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom";
 
-export const Home = () => {
+function App() {
     return (
         <section className="App">
             <h1>Quiz App</h1>
@@ -14,4 +14,6 @@ export const Home = () => {
             </div>
         </section>
     );
-};
+}
+
+export default App;

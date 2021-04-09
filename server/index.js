@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
     session({
         key: "userId",
-        secret: "subscribe",
+        secret: "sherrie",
         resave: false,
         saveUninitialized: false,
         cookie: {
@@ -39,13 +39,14 @@ app.use(
 const db = mysql.createConnection({
     user: "root",
     host: "localhost",
-    password: "password",
-    database: "LoginSystem",
+    password: "admin",
+    database: "loginsystem",
 });
 
 app.post("/register", (req, res) => {
     const username = req.body.username;
-    const password = req.body.password;db
+    const password = req.body.password;
+    console.log(username, password);
 
     bcrypt.hash(password, saltRounds, (err, hash) => {
         if (err) {
@@ -53,10 +54,10 @@ app.post("/register", (req, res) => {
         }
 
         db.query(
-            "INSERT INTO users (username, password) VALUES (?,?)",
+            "INSERT INTO users (username, password) VALUES (?, ?)", 
             [username, hash],
             (err, result) => {
-                console.log(err);
+                console.warn(err);
             }
         );
     });
@@ -106,10 +107,9 @@ app.post("/login", (req, res) => {
             if (result.length > 0) {
                 bcrypt.compare(password, result[0].password, (error, response) => {
                     if (response) {
-                        req.session.user = result;
-
+                        req.session.user = result;   
+                            console.log('req.session.user', req.session.user);
                         const id = result[0].id;
-
                         const token = jwt.sign({id}, 'jwtSecret', {
                             expiresIn: 300,
                         })
@@ -118,9 +118,11 @@ app.post("/login", (req, res) => {
 
                         res.json({ auth: true, token: token, result: result });
                         console.log(req.session.user);
+
                         res.send(result);
                     } else {
                         res.send({ message: "Wrong username/password combination!" });
+                        console.log('req', req.session);
                     }
                 });
             } else {

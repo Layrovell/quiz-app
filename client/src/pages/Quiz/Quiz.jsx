@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, {useState} from 'react';
 import questionsFromServer from '../../questions.json';
 import {Link} from "react-router-dom";
@@ -6,40 +5,27 @@ import {Score} from "../../components/Score/Score";
 
 export const Quiz = () => {
     const [questions, setQuestions] = useState(questionsFromServer);
-    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [current, setCurrent] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
 
-    console.log(questions);
+    const len = questions.length;
 
-    const handleAnswerButtonClick = (isCorrect) => {
-        if (isCorrect === true) {
-            setScore(score + 1);
-        }
-        const nextQuestion = currentQuestion + 1;
-        if (nextQuestion < questions.length) {
-            setCurrentQuestion(nextQuestion);
-        } else {
-            setShowScore(true);
-        }
+    const handleNext = () => {
+        const next = current + 1;
+        if (next < questions.length) setCurrent(next);
+        else setShowScore(true);
     }
 
-    const handleButtonNext = () => {
-        const nextQuestion = currentQuestion + 1;
-        if (nextQuestion < questions.length) {
-            setCurrentQuestion(nextQuestion)
-        } else {
-            setShowScore(true);
-        }
+    const handlePrev = () => {
+        const prev = current - 1;
+        if (prev >= 0) setCurrent(prev);
+        else console.log('no no no!');
     }
 
-    const handleButtonPrev = () => {
-        const prevQuestion = currentQuestion - 1;
-        if (prevQuestion >= 0) {
-            setCurrentQuestion(prevQuestion)
-        } else {
-            console.log('no no no!');
-        }
+    const handleAnswerClick = (isCorrect) => {
+        if (isCorrect === true) setScore(score + 1);
+        handleNext();
     }
 
     return (
@@ -48,14 +34,14 @@ export const Quiz = () => {
                 ? <Score score={score} questions={questions}/>
                 : <>
                     <div className="question-section">
-                        <div className="question-count">Question {currentQuestion + 1} from {questions.length}</div>
-                        <div className="question-text">{questions[currentQuestion].questionText}</div>
+                        <div className="question-count">Question {current + 1} from {len}</div>
+                        <div className="question-text">{questions[current].questionText}</div>
                     </div>
                     <div className="answer-section">
-                        {questions[currentQuestion].answerOptions.map((answers) => (
+                        {questions[current].answerOptions.map((answers) => (
                             <button
                                 key={answers.answerText}
-                                onClick={() => handleAnswerButtonClick(answers.isCorrect)}
+                                onClick={() => handleAnswerClick(answers.isCorrect)}
                                 className="btn btn-answer"
                             >
                                 {answers.answerText}
@@ -63,8 +49,8 @@ export const Quiz = () => {
                         ))}
                     </div>
                     <div className="question-buttons">
-                        <button onClick={() => handleButtonPrev()} className="btn btn-prev">back</button>
-                        <button onClick={() => handleButtonNext()} className="btn btn-prev">next</button>
+                        <button onClick={() => handlePrev()} className="btn btn-prev">back</button>
+                        <button onClick={() => handleNext()} className="btn btn-prev">next</button>
                         <Link to='/quiz/' className='btn btn-exit'>exit</Link>
                     </div>
                 </>
