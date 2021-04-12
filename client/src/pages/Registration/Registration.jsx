@@ -1,12 +1,14 @@
-/* eslint-disable */
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Input } from "../../components/Input/Input";
 import axios from "axios";
 
-export const Registration = () => {
+export const Registration = (props) => {
   const [usernameReg, setUsernameReg] = useState("");
   const [passwordReg, setPasswordReg] = useState("");
+
+  console.log(props);
 
   axios.defaults.withCredentials = true;
   const register = (e) => {
@@ -20,11 +22,16 @@ export const Registration = () => {
       .then((response) => {
         console.log(response);
       });
+
+      props.history.goBack();
   };
 
   return (
-    <section className="App">
-      <h2>Registration</h2>
+    <section className="container">
+      <Helmet>
+        <title>Registration</title>
+      </Helmet>
+      <h2 className="title">Registration</h2>
       <form action="" onSubmit={register}>
         <Input
           action={(e) => setUsernameReg(e.target.value)}
@@ -34,10 +41,15 @@ export const Registration = () => {
           action={(e) => setPasswordReg(e.target.value)}
           label="Password:"
         />
-        <button type="submit">Register</button>
+        <div className="button-container">
+          <button type="submit" className="btn btn-register">
+            Register
+          </button>
+          <Link to="/quiz/" className="btn btn-prev">
+            Back
+          </Link>
+        </div>
       </form>
-
-      <Link to="/quiz/">exit</Link>
     </section>
   );
 };

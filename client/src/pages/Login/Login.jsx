@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Input } from "../../components/Input/Input";
 import axios from "axios";
 
-export const Login = () => {
+export const Login = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState("");
@@ -12,6 +13,8 @@ export const Login = () => {
   const login = (e) => {
     e.preventDefault();
 
+    console.log("log in");
+
     axios
       .post("http://localhost:3003/login", {
         username,
@@ -19,25 +22,24 @@ export const Login = () => {
       })
       .then((response) => {
         if (response.data.message) {
+          console.log(response.data);
           setLoginStatus(response.data.message);
         } else {
-          console.log(response);
+          console.log(response.data[0]);
+          localStorage.setItem("auth", JSON.stringify(response.data[0]));
           setLoginStatus(response.data[0].username);
         }
       });
+
+      props.history.goBack();
   };
 
-  useEffect(() => {
-    axios.get('http://localhost:3003/login').then((response) => {
-        if (response.data.loggedIn === true) {
-            setLoginStatus(response.data.user);
-        }
-    });
-  }, []);
-
   return (
-    <section className="App">
-      <h2>Login</h2>
+    <section className="container">
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
+      <h2 className="title">Login</h2>
       <form action="" onSubmit={login}>
         <Input
           action={(e) => setUsername(e.target.value)}
@@ -49,13 +51,17 @@ export const Login = () => {
           help="Password..."
           label="Password:"
         />
-        <button type="submit">Login</button>
+        <div className="button-container">
+          <button type="submit" className="btn btn-login">
+            Login
+          </button>
+          <Link to="/quiz/" className="btn btn-prev">
+            Back
+          </Link>
+        </div>
       </form>
 
-      <Link to="/quiz/">exit</Link>
-
-      <p>loginStatus:</p>
-      <p>{loginStatus}</p>
+      <p className="error">{loginStatus}</p>
     </section>
   );
 };

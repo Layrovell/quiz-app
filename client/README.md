@@ -26,12 +26,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run deploy`
 
-design sign in form
-https://web.dev/sign-in-form-best-practices/
-https://www.google.com/search?q=login+form&tbm=isch&ved=2ahUKEwjL-JPIg-zvAhUIWxoKHaGbBQwQ2-cCegQIABAA&oq=login+form&gs_lcp=CgNpbWcQAzIECAAQQzICCAAyAggAMgIIADICCAAyAggAMgIIADIECAAQHjIECAAQHjIECAAQHjoGCAAQBxAeOgYIABAFEB5Q6kRY71ZglFtoAHAAeACAAXKIAdgBkgEDMC4ymAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=PZdtYIvmOYi2aaG3lmA&bih=959&biw=1919&rlz=1C1CHZN_enUA943UA943#imgrc=42r5zdSOY56stM
-
-design sign up form
-https://uxdesign.cc/ux-best-practices-registration-500e55284f82            
-
 questions
 https://www.tutorialsteacher.com/online-test/test-result

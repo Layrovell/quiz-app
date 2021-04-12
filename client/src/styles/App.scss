@@ -1,28 +1,16 @@
-.App {
-  font-family: "Roboto", sans-serif;
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-// start home
-
 .btn {
-  width: 120px;
+  width: 100px;
   outline: none;
-  padding: 10px 20px;
+  padding: 10px;
   border-radius: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.8em;
+  background-color: transparent;
+  font-size: 18px;
   box-shadow: rgba(0, 0, 0, 0.1) 0 2px 8px;
   transition: all ease-in-out 0.4s;
+  font-family: 'Times New Roman', Times, serif;
 
   &:hover {
     color: #fff;
@@ -30,75 +18,95 @@
   }
 
   &-play {
-    color: cornflowerblue;
-    border: 1px solid cornflowerblue;
-
-    &:hover {
-      background-color: cornflowerblue;
-    }
-  }
-
-  &-login {
     color: lightsalmon;
     border: 1px solid lightsalmon;
-    margin: 0 10px;
 
     &:hover {
       background-color: lightsalmon;
     }
   }
 
+  &-login {
+    color: cornflowerblue;
+    border: 1px solid cornflowerblue;
+    margin: 0 10px 0 0;
+
+    &:hover {
+      background-color: cornflowerblue;
+    }
+  }
+
+  &-logout {
+    color: pink;
+    border: 1px solid pink;
+    margin: 0 10px 0 0;
+
+    &:hover {
+      background-color: pink;
+    }
+  }
+
   &-register {
     color: lightseagreen;
     border: 1px solid lightseagreen;
-    margin: 0 10px;
 
     &:hover {
       background-color: lightseagreen;
     }
   }
+
+  &-prev {
+    color: gray;
+    border: 1px solid gray;
+
+    &:hover {
+      background-color: gray;
+    }
+  }
+
+  &-next {
+    color: green;
+    border: 1px solid green;
+    margin: 0 10px;
+
+    &:hover {
+      background-color: green;
+    }
+  }
+
+  &-exit {
+    color: red;
+    border: 1px solid red;
+
+    &:hover {
+      background-color: red;
+    }
+  }
+
+  &-answer {
+    font-size: 14px;
+    background-color: transparent;
+    border: 1px solid rebeccapurple;
+    width: calc(100vw - 40px);
+    margin: 5px 20px;
+
+    &:hover {
+      background-color: lighten(rebeccapurple, 10%);
+    }
+  }
+}
+
+.score-container {
+  padding: 10px 0;
 }
 
 .button-container {
-  padding: 10px;
+  padding: 10px 0;
   display: flex;
-}
-
-.auth-container {
-  display: flex;
-  padding: 10px;
+  justify-content: space-between;
 }
 
 // end home
-// start guide component
-
-.guide-buttons {
-  padding: 10px;
-}
-
-.btn-back {
-  padding: 10px;
-  color: lightcoral;
-  border: 1px solid lightcoral;
-  margin: 0 10px;
-
-  &:hover {
-    background-color: lightcoral;
-  }
-}
-
-.btn-forward {
-  padding: 10px;
-  color: purple;
-  border: 1px solid purple;
-  margin: 0 10px;
-
-  &:hover {
-    background-color: purple;
-  }
-}
-
-// end guide component
 
 .roll {
   width: 50px;
@@ -122,36 +130,44 @@
 
 // start game
 
-.btn-answer {
-  font-size: 14px;
-  color: #fff;
-  background-color: rebeccapurple;
-  margin: 10px;
-  width: 200px;
-
-  &:hover {
-    background-color: darken(rebeccapurple, 5%)
-  }
-}
+// start game component
 
 .answer-section {
   display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
-.question-buttons {
+.question-count {
+  padding: 0 0 10px 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.buttons-container {
   display: flex;
 }
 
-.btn-prev,
-.btn-prev,
-.btn-exit {
-  width: 60px;
-  font-size: 14px;
-  border-radius: 0;
-  margin: 5px;
-  background-color: #6b7b8c;
-}
 // end game
+
+// containers
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+// registration
+
+.title {
+  padding: 20px;
+  font-size: 24px;
+  font-weight: 100;
+}
 
 form {
   display: flex;
@@ -160,21 +176,9 @@ form {
   width: 300px;
 }
 
-form button {
-  width: 60px;
-}
-
 label {
   font-size: 14px;
-}
-
-.centered {
-  display: flex;
-  justify-content: space-between;
-}
-
-label {
-  font-size: 16px;
+  font-weight: bold;
 }
 
 input {
@@ -182,27 +186,40 @@ input {
   width: 100%;
   border: 1px solid #c8c8c8;
   height: 35px;
-  margin: 0 0 10px 0;
+  margin: 0 0 15px 0;
   background-color: transparent;
 }
 
-.sign-in-form {
-  max-width: 300px;
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 60px;
+  background: #fff;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.show-hide {
-  background: none;
-  border: none;
-  cursor: pointer;
+.logo {
+  align-items: flex-start;
+}
+
+.navigation {
+  display: flex;
+  color: #00acdc;
+  align-items: center;
+}
+
+.username {
+  padding: 0 10px;
+  // border: 1px solid #00acdc;
+  // height: 30px;
+  // justify-content: center;
+  // align-items: center;
+  // display: flex;
+  // margin-right: 10px;
+}
+
+.error {
   font-size: 16px;
-  color: #fff;
-}
-
-.text {
-  font-size: 12px;
-  margin-bottom: 20px;
-}
-
-.sign-in-btn {
-  padding: 6px 8px;
 }
