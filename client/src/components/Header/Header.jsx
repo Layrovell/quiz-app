@@ -8,22 +8,15 @@ export const Header = () => {
   const { setUser } = useContext(UserContext);
 
   const logout = () => {
-    localStorage.removeItem("auth");
-
     axios.get("http://localhost:3003/logout").then((response) => {
-      console.log(response.data);
+      localStorage.removeItem("username");
+      setUser("");
     });
   };
 
   useEffect(() => {
     axios.get("http://localhost:3003/login").then((response) => {
       console.log(response);
-      if (!response.data.loggedIn) {
-        console.log('non');
-      } else {
-        console.warn(response.data);
-        setUser(response.data.user[0].username);
-      }
     });
   }, []);
 
@@ -36,7 +29,7 @@ export const Header = () => {
       <ul className="navigation">
         <li className="username">{user}</li>
         <li>
-          {user !== "" ? (
+          {user ? (
             <button onClick={logout} className="btn btn-logout">
               Log out
             </button>

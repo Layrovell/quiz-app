@@ -73,6 +73,8 @@ app.get("/logout", (req, res) => {
 app.post("/login", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
+  req.session.cookie.username = username;
+  console.log(req.session.cookie.username);
 
   db.query(
     "SELECT * FROM users WHERE username = ?;",
@@ -88,6 +90,7 @@ app.post("/login", (req, res) => {
             req.session.user = result;
             res.send(result);
           } else {
+            res.send(req.session.user);
             res.send({ message: "Wrong username/password combination!" });
             console.log("req", req.session);
           }

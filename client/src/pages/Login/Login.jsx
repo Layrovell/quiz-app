@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Input } from "../../components/Input/Input";
@@ -28,10 +28,11 @@ export const Login = (props) => {
           console.log(response.data[0]);
           setLoginStatus(response.data[0].username);
           setUser(response.data[0].username);
+          localStorage.setItem("username", response.data[0].username);
         }
       });
 
-      props.history.goBack();
+    props.history.goBack();
   };
 
   return (
