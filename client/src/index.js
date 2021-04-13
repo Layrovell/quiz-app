@@ -4,14 +4,17 @@ import "./styles/index.scss";
 import { routes } from "./routes/routes";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { Header } from "../src/components/Header/Header";
+import { Header } from "./components/Header/Header";
+import {UserContextHOC} from "./components/UserContextHOC";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Header />
-      {routes}
-    </BrowserRouter>
+    <UserContextHOC >
+      <BrowserRouter>
+        <Header />
+        {routes}
+      </BrowserRouter>
+    </UserContextHOC>
   </React.StrictMode>,
   document.getElementById("root")
 );

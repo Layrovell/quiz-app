@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Input } from "../../components/Input/Input";
 import axios from "axios";
+import UserContext from "../../contexts/UserContext";
 
 export const Login = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState("");
+  const { setUser } = useContext(UserContext);
 
   axios.defaults.withCredentials = true;
   const login = (e) => {
@@ -28,6 +30,7 @@ export const Login = (props) => {
           console.log(response.data[0]);
           localStorage.setItem("auth", JSON.stringify(response.data[0]));
           setLoginStatus(response.data[0].username);
+          setUser(response.data[0].username);
         }
       });
 

@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../../contexts/UserContext";
 import axios from "axios";
 
 export const Header = () => {
-  const [user, setUser] = useState("");
-
-  useEffect(() => {
-    axios.get("http://localhost:3003/login").then((response) => {
-      if (response.data.loggedIn === true) {
-        setUser(response.data.user[0].username);
-      }
-    });
-  }, []);
+  const { user } = useContext(UserContext);
 
   const logout = () => {
     localStorage.removeItem("auth");
@@ -28,7 +21,7 @@ export const Header = () => {
       <ul className="navigation">
         <li className='username'>User: {user} - {user}</li>
         <li>
-          {user ? (
+          {user !== 'Guest' ? (
             <button onClick={logout} className="btn btn-logout">
               Log out
             </button>
