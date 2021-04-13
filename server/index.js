@@ -25,7 +25,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      expires: 60 * 60 * 24,
+      expires: 60 * 60 * 24 * 10000,
     },
   })
 );
@@ -66,8 +66,7 @@ app.get("/login", (req, res) => {
 });
 
 app.get("/logout", (req, res) => {
-  res.clearCookie();
-  req.session.destroy();
+  res.clearCookie("userId");
   res.send({ message: "User are log out" });
 });
 

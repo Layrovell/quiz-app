@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Input } from "../../components/Input/Input";
@@ -15,8 +15,6 @@ export const Login = (props) => {
   const login = (e) => {
     e.preventDefault();
 
-    console.log("log in");
-
     axios
       .post("http://localhost:3003/login", {
         username,
@@ -28,7 +26,6 @@ export const Login = (props) => {
           setLoginStatus(response.data.message);
         } else {
           console.log(response.data[0]);
-          localStorage.setItem("auth", JSON.stringify(response.data[0]));
           setLoginStatus(response.data[0].username);
           setUser(response.data[0].username);
         }
